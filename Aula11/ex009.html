@@ -5,19 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>País de Origem</title>
+    <style>
+      body {
+        background-color: whitesmoke;
+        font: normal 18px Arial;
+        color: blue;
+      }
+      div#res {
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
     <h1>Nacionalidade</h1>
-    Brasileiro ou Estrangeiro? <input type="text" name="pais" id="pais" />
-    <input type="button" value="Verificar" onclick="calcular()" />
-    <div id="res"></div>
+    <p>Brasileiro ou Estrangeiro?</p>
+    <input type="text" name="txtnac" id="txtnac" />
+    <input type="button" value="confirmar" onclick="aceito()" />
+    <div id="res">Situação</div>
 
     <script>
-      function pesquisar() {
-        var pais = window.document.getElementById('pais')
+      function aceito() {
+        var txt = window.document.getElementById('txtnac')
+        var txt2 = String(txt.value)
         var res = window.document.getElementById('res')
-        res.innerHTML = `<p>Você é: ${value.pais} <strong></strong></p>`
+        var con = window.document.getElementById('conf')
+
+        if (txt2 == 'Brasil' || txt2 == 'brasil') {
+          res.innerHTML = `<p>Você é brasileiro</p>`
+          window.confirm('confirmar informação')
+        } else {
+          res.innerHTML = `<p>Você é estrangeiro.</p>`
+          window.confirm('confirmar informação')
+        }
       }
     </script>
   </body>
 </html>
+
